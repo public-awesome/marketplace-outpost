@@ -1,10 +1,10 @@
 # Stargaze Marketplace Outpost
 
-These contracts provides functionality to a CosmWasm chain to interoperate with Stargaze Marketplace. There are two contracts, Outpost Server, and Outpost Client.
+These contracts provides functionality to a CosmWasm chain to interoperate with Stargaze Marketplace. There are two contracts, Hub, and Outpost.
 
-## Outpost Client
+## Outpost
 
-Outpost Client is a fork of the ICS721 bridge and adds IBC messages to communicate with Marketplace.
+Outpost is a fork of the ICS721 bridge and adds IBC messages to communicate with Marketplace.
 
 ```rs
 pub struct IbcSetAskAwayMsg {
@@ -19,9 +19,9 @@ pub struct IbcSetAskAwayMsg {
 }
 ```
 
-## Outpost Server
+## Hub
 
-Outpost Server is also a fork of the ICS721 bridge, and runs on Stargaze. It receives messages from Outpost Clients, and communicates with Marketplace. For example, if a client sends a message to list an NFT, the server parses the message, and calls `SetAsk {}` on Marketplace.
+Hub is also a fork of the ICS721 bridge, and runs on Stargaze. It receives messages from Outposts, and communicates with Marketplace. For example, if an outpost sends a message to list an NFT, the Hub parses the message, and calls `SetAsk {}` on Marketplace.
 
 ## List an NFT on Stargaze Marketplace via Outpost
 
@@ -41,10 +41,10 @@ pub struct IbcSetAskAwayMsg {
 }
 ```
 
-2. Call `Send { contract, token_id, msg }` on a cw721 with the above message. `contract` here is an Outpost Client contract, and `msg` is the `IbcSetAskAwaysMsg`.
+2. Call `Send { contract, token_id, msg }` on a cw721 with the above message. `contract` here is an Outpost contract, and `msg` is the `IbcSetAskAwaysMsg`.
 
-3. The Outpost Client contract does the IBC NFT transfer to Outpost Server on Stargaze.
+3. The Outpost contract does the IBC NFT transfer to the Hub on Stargaze.
 
-4. Outpost Server on the Stargaze side receives the message, and calls `SetAsk {}` on Marketplace.
+4. The Hub on the Stargaze side receives the message, and calls `SetAsk {}` on Marketplace.
 
 5. When an NFT is sold, the proceeds are sent to the `payment_address` specified in the IBC Set Ask message.
