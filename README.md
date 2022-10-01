@@ -21,7 +21,7 @@ pub struct IbcSetAskAwayMsg {
 
 ## Outpost Server
 
-Outpost Server is also a fork of the ICS721 bridge, and runs on Stargaze. It receives messages from Outpost Clients, and communicates with Marketplace. For example, if a client sends a message to list an NFT, the server parses the message, and calls `SetAsk {}` on Marketplace. Outpost Server also custodies funds from NFT sales until they are claimed.
+Outpost Server is also a fork of the ICS721 bridge, and runs on Stargaze. It receives messages from Outpost Clients, and communicates with Marketplace. For example, if a client sends a message to list an NFT, the server parses the message, and calls `SetAsk {}` on Marketplace.
 
 ## List an NFT on Stargaze Marketplace via Outpost
 
