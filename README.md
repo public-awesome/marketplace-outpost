@@ -7,7 +7,7 @@ These contracts provides functionality to a CosmWasm chain to interoperate with 
 Outpost is a fork of the ICS721 bridge and adds IBC messages to communicate with Marketplace.
 
 ```rs
-pub struct IbcSetAskAwayMsg {
+pub struct IbcStargazeMarketplaceSetAskMsg {
    /// IBC fields
    pub channel_id: String,
    pub timeout: IbcTimeout,
@@ -30,7 +30,7 @@ For example, to list an NFT on Marketplace:
 1. Create an IBC message to list an NFT on Marketplace
 
 ```rs
-pub struct IbcSetAskAwayMsg {
+pub struct IbcStargazeMarketplaceSetAskMsg {
    /// IBC fields
    pub channel_id: String,
    pub timeout: IbcTimeout,
