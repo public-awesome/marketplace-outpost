@@ -1,6 +1,6 @@
 use cosmwasm_schema::write_api;
 
-use outpost::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
+use sg_marketplace_outpost::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
 
 fn main() {
     write_api! {

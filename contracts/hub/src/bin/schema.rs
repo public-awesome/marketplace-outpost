@@ -1,6 +1,6 @@
 use cosmwasm_schema::write_api;
 
-use hub::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
+use sg_marketplace_hub::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
 
 fn main() {
     write_api! {
