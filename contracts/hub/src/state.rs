@@ -1,13 +1,10 @@
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
+use cw_storage_plus::Map;
 
-use cosmwasm_std::Addr;
-use cw_storage_plus::Item;
+/// Same as above, but for NFTs arriving at this contract.
+pub const INCOMING_CLASS_TOKEN_TO_CHANNEL: Map<(String, String), String> =
+    Map::new("incoming_class_token_to_channel");
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Eq, JsonSchema)]
-pub struct State {
-    pub count: i32,
-    pub owner: Addr,
-}
-
-pub const STATE: Item<State> = Item::new("state");
+/// Maps (class ID, token ID) -> local channel ID. Used to determine
+/// the local channel that NFTs have been sent out on.
+pub const OUTGOING_CLASS_TOKEN_TO_CHANNEL: Map<(String, String), String> =
+    Map::new("outgoing_class_token_to_channel");
