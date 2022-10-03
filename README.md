@@ -2,6 +2,8 @@
 
 These contracts provides functionality to a CosmWasm chain to interoperate with Stargaze Marketplace. There are two contracts, Hub, and Outpost.
 
+![Outpost](Outpost-1.png)
+
 ## Outpost
 
 Outpost is a fork of the ICS721 bridge and adds IBC messages to communicate with Marketplace.
